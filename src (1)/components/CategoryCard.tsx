@@ -1,4 +1,4 @@
-import { useNav } from '../router'
+import { href } from '../router'
 import type { Category } from '../data/categories'
 import { CategoryIcon } from './CategoryIcons'
 
@@ -7,31 +7,22 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {
-  const { navigate } = useNav()
   const { theme } = category
 
   return (
-    <button
-      onClick={() => navigate(category.id)}
-      className="group relative overflow-hidden text-left w-full cursor-pointer"
+    <a
+      href={href(category.id)}
+      className="group block relative overflow-hidden"
       style={{
         aspectRatio: '1 / 1',
         background: theme.bg,
         border: `1px solid ${theme.border}`,
-        borderRadius: '16px',
+        borderRadius: '3px',
         transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-        padding: 0,
-      }}
-      onMouseEnter={e => {
-        ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
-        ;(e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px rgba(0,0,0,0.18)`
-      }}
-      onMouseLeave={e => {
-        ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
-        ;(e.currentTarget as HTMLElement).style.boxShadow = 'none'
+        textDecoration: 'none',
       }}
     >
-      {/* Background gradient */}
+      {/* Subtle background gradient */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
@@ -40,10 +31,12 @@ export default function CategoryCard({ category }: CategoryCardProps) {
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-between p-8 sm:p-10">
-        <div className="self-end w-16 h-16 sm:w-20 sm:h-20 opacity-70 group-hover:opacity-100 transition-opacity duration-200">
+        {/* Icon top-right */}
+        <div className="self-end w-16 h-16 sm:w-20 sm:h-20 opacity-80 group-hover:opacity-100 transition-opacity duration-200">
           <CategoryIcon id={category.id} color={theme.accent} />
         </div>
 
+        {/* Text bottom-left */}
         <div>
           <p
             className="mb-2 text-xs uppercase tracking-widest"
@@ -52,14 +45,13 @@ export default function CategoryCard({ category }: CategoryCardProps) {
             {category.tagline}
           </p>
           <h2
-            className="leading-none"
+            className="mb-0 leading-none"
             style={{
               fontFamily: theme.headingFont,
               fontSize: 'clamp(2.4rem, 5vw, 3.5rem)',
               fontWeight: 600,
               color: theme.text,
               letterSpacing: '-0.02em',
-              margin: 0,
             }}
           >
             {category.title}
@@ -78,8 +70,8 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-        style={{ background: `${theme.accent}08`, borderRadius: '16px' }}
+        style={{ background: `${theme.accent}08` }}
       />
-    </button>
+    </a>
   )
 }
