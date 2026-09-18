@@ -43,33 +43,33 @@ export interface Category {
 }
 
 export const CATEGORIES: Category[] = [
-  // {
-  //   id: 'ai',
-  //   title: 'AI',
-  //   tagline: 'Intelligence, examined',
-  //   description:
-  //     'Thinking about thinking machines — models, systems, and what they reveal about us.',
-  //   theme: {
-  //     bg: '#0D1117',
-  //     bgDeep: '#010409',
-  //     surface: '#161B22',
-  //     accent: '#58A6FF',
-  //     accentSoft: 'rgba(88,166,255,0.12)',
-  //     text: '#E6EDF3',
-  //     textSoft: '#8B949E',
-  //     textMuted: '#484F58',
-  //     border: 'rgba(240,246,252,0.1)',
-  //     headingFont: "'Space Grotesk', system-ui, sans-serif",
-  //     bodyFont: "'Inter', system-ui, sans-serif",
-  //   },
-  //   blogs: [
-  //     { id: 'attention-mechanism', title: 'What the attention mechanism actually does', date: 'Sep 10', tag: 'Theory' },
-  //     { id: 'prompting-is-programming', title: 'Prompting is just programming in prose', date: 'Sep 1', tag: 'Practice' },
-  //     { id: 'when-models-confabulate', title: 'When models confabulate with confidence', date: 'Aug 22', tag: 'Behavior' },
-  //     { id: 'embeddings-geometry', title: 'The geometry of embeddings', date: 'Aug 15', tag: 'Theory' },
-  //     { id: 'inference-cost', title: 'Why inference cost changes everything', date: 'Aug 7', tag: 'Economics' },
-  //   ],
-  // },
+  {
+    id: 'ai',
+    title: 'AI',
+    tagline: 'Intelligence, examined',
+    description:
+      'Thinking about thinking machines — models, systems, and what they reveal about us.',
+    theme: {
+      bg: '#0D1117',
+      bgDeep: '#010409',
+      surface: '#161B22',
+      accent: '#58A6FF',
+      accentSoft: 'rgba(88,166,255,0.12)',
+      text: '#E6EDF3',
+      textSoft: '#8B949E',
+      textMuted: '#484F58',
+      border: 'rgba(240,246,252,0.1)',
+      headingFont: "'Space Grotesk', system-ui, sans-serif",
+      bodyFont: "'Inter', system-ui, sans-serif",
+    },
+    blogs: [
+      { id: 'attention-mechanism', title: 'What the attention mechanism actually does', date: 'Sep 10', tag: 'Theory' },
+      { id: 'prompting-is-programming', title: 'Prompting is just programming in prose', date: 'Sep 1', tag: 'Practice' },
+      { id: 'when-models-confabulate', title: 'When models confabulate with confidence', date: 'Aug 22', tag: 'Behavior' },
+      { id: 'embeddings-geometry', title: 'The geometry of embeddings', date: 'Aug 15', tag: 'Theory' },
+      { id: 'inference-cost', title: 'Why inference cost changes everything', date: 'Aug 7', tag: 'Economics' },
+    ],
+  },
 
   {
     id: 'watches',
