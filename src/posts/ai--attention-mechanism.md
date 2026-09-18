@@ -1,5 +1,5 @@
 ---
-title: "What the attention mechanism actually does"
+title: "The Test of the centurary"
 date: 2026-09-10
 category: ai
 tag: Theory
