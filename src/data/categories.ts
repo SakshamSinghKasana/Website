@@ -1,15 +1,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// DATA FILE — add new categories here, or add blogs inside existing ones.
+// CATEGORIES — visual config only. Blog posts live in src/posts/*.md.
 //
-// To add a category:
-//   1. Add a new object to CATEGORIES following the same shape.
-//   2. Give it a unique `id` (used in the URL, e.g. "tech" → /tech).
-//   3. Pick a `theme` — all color values are plain CSS strings.
-//
-// To add a blog post to a category:
-//   1. Find the category in CATEGORIES.
-//   2. Push a new object into its `blogs` array.
-//   3. Give it a unique `id` within that category (used in the URL).
+// To add a new category:
+//   1. Add a new object here with a unique `id`.
+//   2. Create posts for it in src/posts/ with `category: <id>` in frontmatter.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export interface CategoryTheme {
@@ -26,20 +20,12 @@ export interface CategoryTheme {
   bodyFont: string
 }
 
-export interface BlogPost {
-  id: string
-  title: string
-  date: string
-  tag: string
-}
-
 export interface Category {
   id: string
   title: string
   tagline: string
   description: string
   theme: CategoryTheme
-  blogs: BlogPost[]
 }
 
 export const CATEGORIES: Category[] = [
@@ -47,8 +33,7 @@ export const CATEGORIES: Category[] = [
     id: 'ai',
     title: 'AI',
     tagline: 'Intelligence, examined',
-    description:
-      'Thinking about thinking machines — models, systems, and what they reveal about us.',
+    description: 'Thinking about thinking machines — models, systems, and what they reveal about us.',
     theme: {
       bg: '#0D1117',
       bgDeep: '#010409',
@@ -62,21 +47,12 @@ export const CATEGORIES: Category[] = [
       headingFont: "'Space Grotesk', system-ui, sans-serif",
       bodyFont: "'Inter', system-ui, sans-serif",
     },
-    blogs: [
-      { id: 'attention-mechanism', title: 'What the attention mechanism actually does', date: 'Sep 10', tag: 'Theory' },
-      { id: 'prompting-is-programming', title: 'Prompting is just programming in prose', date: 'Sep 1', tag: 'Practice' },
-      { id: 'when-models-confabulate', title: 'When models confabulate with confidence', date: 'Aug 22', tag: 'Behavior' },
-      { id: 'embeddings-geometry', title: 'The geometry of embeddings', date: 'Aug 15', tag: 'Theory' },
-      { id: 'inference-cost', title: 'Why inference cost changes everything', date: 'Aug 7', tag: 'Economics' },
-    ],
   },
-
   {
     id: 'watches',
     title: 'Watches',
     tagline: 'Time, made tangible',
-    description:
-      'Mechanical horology, complications worth understanding, and the pleasure of a well-made movement.',
+    description: 'Mechanical horology, complications worth understanding, and the pleasure of a well-made movement.',
     theme: {
       bg: '#0A0E1A',
       bgDeep: '#050710',
@@ -90,21 +66,12 @@ export const CATEGORIES: Category[] = [
       headingFont: "'Fraunces', Georgia, serif",
       bodyFont: "'Source Serif 4', Georgia, serif",
     },
-    blogs: [
-      { id: 'why-mechanical', title: 'Why mechanical watches in a world of quartz', date: 'Sep 8', tag: 'Philosophy' },
-      { id: 'reading-a-movement', title: 'How to read a movement for the first time', date: 'Aug 30', tag: 'Guide' },
-      { id: 'five-complications', title: 'Five complications worth learning', date: 'Aug 19', tag: 'Horology' },
-      { id: 'the-case-for-seconds', title: 'The case for the central seconds hand', date: 'Aug 9', tag: 'Design' },
-      { id: 'tool-watch', title: 'The tool watch as a philosophy of objects', date: 'Jul 28', tag: 'Essay' },
-    ],
   },
-
   {
     id: 'coffee',
     title: 'Coffee',
     tagline: 'The slow pour',
-    description:
-      'Brewing notes, origin stories, and the rituals that make a good cup worth making twice.',
+    description: 'Brewing notes, origin stories, and the rituals that make a good cup worth making twice.',
     theme: {
       bg: '#EDE3D0',
       bgDeep: '#E4D6BC',
@@ -118,21 +85,12 @@ export const CATEGORIES: Category[] = [
       headingFont: "'Fraunces', Georgia, serif",
       bodyFont: "'Source Serif 4', Georgia, serif",
     },
-    blogs: [
-      { id: 'pour-over-patience', title: 'Pour-over is a practice in patience', date: 'Sep 12', tag: 'Ritual' },
-      { id: 'origin-ethiopia', title: 'Ethiopian naturals and the taste of fruit', date: 'Sep 4', tag: 'Origin' },
-      { id: 'water-chemistry', title: 'Why water chemistry matters more than the bean', date: 'Aug 27', tag: 'Science' },
-      { id: 'single-purpose-ten', title: 'Ten minutes with nothing but the cup', date: 'Aug 18', tag: 'Essay' },
-      { id: 'three-cafes', title: 'Three cafés worth the walk', date: 'Aug 3', tag: 'Field notes' },
-    ],
   },
-
   {
     id: 'cars',
     title: 'Cars',
     tagline: 'Motion with intention',
-    description:
-      'Engineering, design language, and what a well-made car tells you about the people who built it.',
+    description: 'Engineering, design language, and what a well-made car tells you about the people who built it.',
     theme: {
       bg: '#111111',
       bgDeep: '#080808',
@@ -146,22 +104,9 @@ export const CATEGORIES: Category[] = [
       headingFont: "'Space Grotesk', system-ui, sans-serif",
       bodyFont: "'Inter', system-ui, sans-serif",
     },
-    blogs: [
-      { id: 'oversteer-understeer', title: 'Oversteer, understeer, and what they teach you', date: 'Sep 9', tag: 'Dynamics' },
-      { id: 'analogue-era', title: 'The last analogue era of driving', date: 'Sep 1', tag: 'Essay' },
-      { id: 'inline-six', title: 'Why the inline-six refuses to die', date: 'Aug 23', tag: 'Engineering' },
-      { id: 'cockpit-design', title: "What a cockpit reveals about a car's intent", date: 'Aug 14', tag: 'Design' },
-      { id: 'daily-driver', title: 'The daily driver as a design constraint', date: 'Aug 4', tag: 'Essay' },
-    ],
   },
 ]
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
 export function getCategoryById(id: string): Category | undefined {
   return CATEGORIES.find(c => c.id === id)
-}
-
-export function getBlogById(categoryId: string, blogId: string): BlogPost | undefined {
-  return getCategoryById(categoryId)?.blogs.find(b => b.id === blogId)
 }
