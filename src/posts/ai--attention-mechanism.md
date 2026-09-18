@@ -1,7 +1,7 @@
 ---
 title: "The Test of the centurary"
 date: 2026-09-20
-category: ai
+category: cars
 tag: Theory
 featured: true
 draft: false
