@@ -23,7 +23,8 @@ export default function HomePage() {
             onClick={() => navigate()}
             style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 600, fontSize: '21px', color: HOME.espresso, letterSpacing: '0.01em', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           >
-            Meridian <span style={{ fontStyle: 'italic', fontWeight: 420, color: HOME.rust }}>&amp;</span> Co.
+            <span style={{ fontStyle: 'italic', fontWeight: 420, color: HOME.rust }}>Mr.</span> Baguette
+            {/* Meridian <span style={{ fontStyle: 'italic', fontWeight: 420, color: HOME.rust }}>&amp;</span> Co. */}
           </button>
         </div>
       </header>
@@ -65,7 +66,7 @@ export default function HomePage() {
       <footer style={{ background: HOME.espresso, padding: '28px 0 40px' }}>
         <div className="mx-auto max-w-6xl px-8">
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12.5px', color: 'rgba(242,233,216,0.45)', margin: 0 }}>
-            © 2026 Meridian & Co. Written with care, published slowly.
+            © 2026 Mr. Baguette Written with care, published slowly.
           </p>
         </div>
       </footer>
