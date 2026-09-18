@@ -1,6 +1,6 @@
 ---
 title: "The Test of the centurary"
-date: 2026-09-10
+date: 2026-09-200
 category: ai
 tag: Theory
 featured: true
