@@ -1,7 +1,7 @@
 ---
 title: "The geometry of embeddings"
 date: 2026-08-15
-category: ai
+category: cars
 tag: Theory
 featured: false
 draft: false
