@@ -1,0 +1,124 @@
+import { href, navigate } from '../router'
+import { getCategoryById } from '../data/categories'
+
+interface Props { categoryId: string }
+
+export default function CategoryPage({ categoryId }: Props) {
+  const category = getCategoryById(categoryId)
+
+  if (!category) {
+    navigate()
+    return null
+  }
+
+  const { theme } = category
+
+  return (
+    <div style={{ background: theme.bg, color: theme.text, minHeight: '100vh' }}>
+
+      {/* ── Header ────────────────────────────────────────────────────── */}
+      <header style={{ background: theme.surface, borderBottom: `1px solid ${theme.border}`, padding: '22px 0' }}>
+        <div className="mx-auto max-w-4xl px-8 flex items-center justify-between gap-4">
+          <a
+            href={href()}
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: theme.textMuted, transition: 'color 0.15s' }}
+            onMouseEnter={e => (e.currentTarget.style.color = theme.textSoft)}
+            onMouseLeave={e => (e.currentTarget.style.color = theme.textMuted)}
+          >
+            ← Meridian
+          </a>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: theme.accent, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            {category.title}
+          </span>
+        </div>
+      </header>
+
+      {/* ── Category hero ─────────────────────────────────────────────── */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          padding: '72px 0 64px',
+          background: `radial-gradient(ellipse at 90% 0%, ${theme.accentSoft}, transparent 55%)`,
+          borderBottom: `1px solid ${theme.border}`,
+        }}
+      >
+        <div className="mx-auto max-w-4xl px-8">
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: theme.accent, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '14px' }}>
+            {category.tagline}
+          </p>
+          <h1 style={{ fontFamily: theme.headingFont, fontWeight: 600, fontSize: 'clamp(40px, 7vw, 72px)', lineHeight: 1, letterSpacing: '-0.02em', color: theme.text, margin: '0 0 20px' }}>
+            {category.title}
+          </h1>
+          <p style={{ fontFamily: theme.bodyFont, fontSize: '17px', lineHeight: 1.65, color: theme.textSoft, maxWidth: '52ch', margin: 0 }}>
+            {category.description}
+          </p>
+        </div>
+      </section>
+
+      {/* ── Blog list ─────────────────────────────────────────────────── */}
+      <section style={{ padding: '56px 0 80px' }}>
+        <div className="mx-auto max-w-4xl px-8">
+          <h2 style={{
+            fontFamily: theme.headingFont, fontWeight: 600, fontSize: '14px',
+            color: theme.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase',
+            margin: '0 0 32px', paddingBottom: '16px', borderBottom: `1px solid ${theme.border}`,
+          }}>
+            All entries — {category.blogs.length}
+          </h2>
+
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+            {category.blogs.map((blog, i) => (
+              <li
+                key={blog.id}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '96px 1fr auto',
+                  gap: '28px',
+                  alignItems: 'start',
+                  padding: '24px 0',
+                  borderBottom: `1px solid ${theme.border}`,
+                  ...(i === 0 ? { paddingTop: 0 } : {}),
+                }}
+              >
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: theme.textMuted, paddingTop: '3px' }}>
+                  {blog.date}
+                </span>
+
+                <a href={href(category.id, blog.id)} style={{ display: 'block' }}>
+                  <h3
+                    style={{ fontFamily: theme.headingFont, fontWeight: 500, fontSize: '22px', lineHeight: 1.25, color: theme.text, margin: 0, transition: 'color 0.15s' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = theme.accent)}
+                    onMouseLeave={e => (e.currentTarget.style.color = theme.text)}
+                  >
+                    {blog.title}
+                  </h3>
+                </a>
+
+                <span style={{
+                  fontFamily: "'Inter', sans-serif", fontSize: '12px', color: theme.accent,
+                  background: theme.accentSoft, padding: '5px 11px', borderRadius: '2px',
+                  whiteSpace: 'nowrap', height: 'fit-content',
+                }}>
+                  {blog.tag}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── Footer ────────────────────────────────────────────────────── */}
+      <footer style={{ background: theme.surface, borderTop: `1px solid ${theme.border}`, padding: '24px 0 32px' }}>
+        <div className="mx-auto max-w-4xl px-8 flex justify-between items-center flex-wrap gap-4">
+          <a href={href()} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', color: theme.textMuted }}>
+            ← Back to all journals
+          </a>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: theme.textMuted, margin: 0 }}>
+            Meridian & Co.
+          </p>
+        </div>
+      </footer>
+
+    </div>
+  )
+}
