@@ -10,6 +10,7 @@
     "format": "oxfmt"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "marked": "^18.0.13",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
