@@ -1,5 +1,11 @@
 // Pure React-state router — no external dependencies, works in any iframe.
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  type ReactNode,
+} from "react"
 
 export interface Route {
   categoryId?: string
