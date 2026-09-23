@@ -39,13 +39,12 @@ export default function HomePage() {
               padding: 0,
             }}
           >
-            Meridian{" "}
             <span
               style={{ fontStyle: "italic", fontWeight: 420, color: HOME.rust }}
             >
-              &amp;
+              Mr. 
             </span>{" "}
-            Co.
+            Baguette
           </button>
         </div>
       </header>
@@ -171,7 +170,7 @@ export default function HomePage() {
               margin: 0,
             }}
           >
-            © 2026 Meridian & Co. Written with care, published slowly.
+            © 2026 By Mr. Baguette. Written with care, published slowly.
           </p>
         </div>
       </footer>

@@ -249,7 +249,7 @@ export default function CategoryPage({ categoryId }: Props) {
               margin: 0,
             }}
           >
-            Meridian & Co.
+            Mr. Baguette
           </p>
         </div>
       </footer>

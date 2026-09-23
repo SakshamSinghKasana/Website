@@ -269,7 +269,7 @@ export default function BlogPage({ categoryId, postId }: Props) {
               margin: 0,
             }}
           >
-            Meridian & Co.
+            Mr. Baguette
           </p>
         </div>
       </footer>
